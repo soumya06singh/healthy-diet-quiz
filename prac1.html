@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>स्वस्थ आहार प्रश्नोत्तरी</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f3ff;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #4338ca;
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      background: #ffffff;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 6px solid #6366f1;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .question:hover {
+      transform: scale(1.01);
+      transition: 0.3s ease;
+    }
+
+    .question p {
+      font-size: 1.15em;
+      color: #111827;
+      font-weight: 500;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+      accent-color: #6366f1;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 1em;
+      color: #374151;
+      cursor: pointer;
+      padding-left: 4px;
+    }
+
+    button {
+      display: block;
+      margin: 40px auto 10px;
+      padding: 14px 30px;
+      font-size: 1em;
+      background-color: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #4f46e5;
+    }
+
+    .answer {
+      margin-top: 12px;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .score {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 30px;
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      .question p,
+      label {
+        font-size: 1em;
+      }
+
+      button {
+        width: 100%;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>स्वस्थ आहार: प्रश्नोत्तरी</h1>
+
+    <div class="question">
+      <p>1. निम्न में से कौन एक स्वस्थ वसा (फैट) का स्रोत है?</p>
+      <label><input type="radio" name="q1" value="a"> मक्खन</label>
+      <label><input type="radio" name="q1" value="b"> जैतून का तेल</label>
+      <label><input type="radio" name="q1" value="c"> मार्जरीन</label>
+      <div id="a1" class="answer"></div>
+    </div>
+
+    <div class="question">
+      <p>2. अस्वस्थ आहार का एक संभावित परिणाम क्या हो सकता है?</p>
+      <label><input type="radio" name="q2" value="a"> बेहतर एकाग्रता</label>
+      <label><input type="radio" name="q2" value="b"> विटामिन और खनिज की कमी</label>
+      <label><input type="radio" name="q2" value="c"> मांसपेशियों की शक्ति में वृद्धि</label>
+      <div id="a2" class="answer"></div>
+    </div>
+
+    <div class="question">
+      <p>3. निम्न में से कौन मुख्य खाद्य समूह नहीं है?</p>
+      <label><input type="radio" name="q3" value="a"> डेयरी</label>
+      <label><input type="radio" name="q3" value="b"> शर्करा युक्त पेय (सुगरी ड्रिंक्स)</label>
+      <label><input type="radio" name="q3" value="c"> कार्बोहाइड्रेट</label>
+      <div id="a3" class="answer"></div>
+    </div>
+
+    <div class="question">
+      <p>4. आहार में आयरन की कमी से क्या हो सकता है?</p>
+      <label><input type="radio" name="q4" value="a"> आयोडीन की कमी</label>
+      <label><input type="radio" name="q4" value="b"> आयरन की कमी से एनीमिया</label>
+      <label><input type="radio" name="q4" value="c"> विटामिन D की कमी</label>
+      <div id="a4" class="answer"></div>
+    </div>
+
+    <div class="question">
+      <p>5. आहार में कार्बोहाइड्रेट की क्या भूमिका होती है?</p>
+      <label><input type="radio" name="q5" value="a"> मांसपेशियों का निर्माण</label>
+      <label><input type="radio" name="q5" value="b"> ऊर्जा प्रदान करना</label>
+      <label><input type="radio" name="q5" value="c"> हड्डियों को मजबूत बनाना</label>
+      <div id="a5" class="answer"></div>
+    </div>
+
+    <button onclick="checkAnswers()">उत्तर सबमिट करें</button>
+    <div id="score" class="score"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'b',
+        q4: 'b',
+        q5: 'b'
+      };
+
+      const correctText = {
+        q1: "जैतून का तेल",
+        q2: "विटामिन और खनिज की कमी",
+        q3: "शर्करा युक्त पेय",
+        q4: "आयरन की कमी से एनीमिया",
+        q5: "ऊर्जा प्रदान करना"
+      };
+
+      let allAnswered = true;
+      for (let i = 1; i <= 5; i++) {
+        if (!document.querySelector(`input[name="q${i}"]:checked`)) {
+          allAnswered = false;
+          break;
+        }
+      }
+
+      if (!allAnswered) {
+        alert("कृपया सभी प्रश्नों के उत्तर दें।");
+        return;
+      }
+
+      let score = 0;
+
+      for (let i = 1; i <= 5; i++) {
+        let userAnswer = document.querySelector(`input[name="q${i}"]:checked`).value;
+        let feedback = document.getElementById(`a${i}`);
+        if (userAnswer === answers[`q${i}`]) {
+          feedback.textContent = "✅ सही उत्तर!";
+          feedback.style.color = "#059669";
+          score++;
+        } else {
+          feedback.textContent = `❌ गलत उत्तर। सही उत्तर है: ${correctText[`q${i}`]}`;
+          feedback.style.color = "#b91c1c";
+        }
+      }
+
+      document.getElementById("score").textContent = `आपका स्कोर: ${score} / 5`;
+    }
+  </script>
+
+</body>
+</html>
