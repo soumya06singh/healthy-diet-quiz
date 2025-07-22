@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>स्वस्थ आहार ज्ञान प्रश्नोत्तरी</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f9f4;
+      padding: 20px;
+    }
+    h1 {
+      color: #2e8b57;
+    }
+    .question {
+      background: #ffffff;
+      padding: 15px;
+      margin: 15px 0;
+      border-left: 5px solid #2e8b57;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .answer {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>स्वस्थ आहार: प्रश्नोत्तरी</h1>
+
+  <div class="question">
+    <p>1. निम्न में से कौन एक स्वस्थ वसा (फैट) का स्रोत है?</p>
+    <input type="radio" name="q1" value="a"> मक्खन<br>
+    <input type="radio" name="q1" value="b"> जैतून का तेल<br>
+    <input type="radio" name="q1" value="c"> मार्जरीन<br>
+    <div id="a1" class="answer"></div>
+  </div>
+
+  <div class="question">
+    <p>2. अस्वस्थ आहार का एक संभावित परिणाम क्या हो सकता है?</p>
+    <input type="radio" name="q2" value="a"> बेहतर एकाग्रता<br>
+    <input type="radio" name="q2" value="b"> विटामिन और खनिज की कमी<br>
+    <input type="radio" name="q2" value="c"> मांसपेशियों की शक्ति में वृद्धि<br>
+    <div id="a2" class="answer"></div>
+  </div>
+
+  <div class="question">
+    <p>3. निम्न में से कौन मुख्य खाद्य समूह नहीं है?</p>
+    <input type="radio" name="q3" value="a"> डेयरी<br>
+    <input type="radio" name="q3" value="b"> शर्करा युक्त पेय (सुगरी ड्रिंक्स)<br>
+    <input type="radio" name="q3" value="c"> कार्बोहाइड्रेट<br>
+    <div id="a3" class="answer"></div>
+  </div>
+
+  <div class="question">
+    <p>4. आहार में आयरन की कमी से क्या हो सकता है?</p>
+    <input type="radio" name="q4" value="a"> आयोडीन की कमी<br>
+    <input type="radio" name="q4" value="b"> आयरन की कमी से एनीमिया<br>
+    <input type="radio" name="q4" value="c"> विटामिन D की कमी<br>
+    <div id="a4" class="answer"></div>
+  </div>
+
+  <div class="question">
+    <p>5. आहार में कार्बोहाइड्रेट की क्या भूमिका होती है?</p>
+    <input type="radio" name="q5" value="a"> मांसपेशियों का निर्माण<br>
+    <input type="radio" name="q5" value="b"> ऊर्जा प्रदान करना<br>
+    <input type="radio" name="q5" value="c"> हड्डियों को मजबूत बनाना<br>
+    <div id="a5" class="answer"></div>
+  </div>
+
+  <button onclick="checkAnswers()">उत्तर सबमिट करें</button>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'b',
+        q4: 'b',
+        q5: 'b'
+      };
+
+      const correctText = {
+        q1: "जैतून का तेल",
+        q2: "विटामिन और खनिज की कमी",
+        q3: "शर्करा युक्त पेय",
+        q4: "आयरन की कमी से एनीमिया",
+        q5: "ऊर्जा प्रदान करना"
+      };
+
+      for (let i = 1; i <= 5; i++) {
+        let userAnswer = document.querySelector(`input[name="q${i}"]:checked`)?.value;
+        let feedback = document.getElementById(`a${i}`);
+        if (userAnswer === answers[`q${i}`]) {
+          feedback.textContent = "✅ सही उत्तर!";
+          feedback.style.color = "green";
+        } else {
+          feedback.textContent = `❌ गलत उत्तर। सही उत्तर है: ${correctText[`q${i}`]}`;
+          feedback.style.color = "red";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
+ 
